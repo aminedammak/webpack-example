@@ -1,6 +1,6 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-// var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
@@ -15,13 +15,13 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'css-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    'css-loader', 'sass-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
                 ]
             },
             {
@@ -39,6 +39,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new TerserPlugin()
+        new TerserPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "styles.css"
+        })
     ]
 }
