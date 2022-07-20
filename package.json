@@ -19,7 +19,7 @@
     "node-sass": "^4.13.0",
     "path": "^0.12.7",
     "style-loader": "^1.1.2",
-    "terser": "^4.6.1"
+    "terser": "^4.8.1"
   },
   "devDependencies": {
     "fibers": "^4.0.2",
